@@ -288,7 +288,7 @@ header {
     background-color: currentColor;
     width: 60px;
     right: 0;
-    margin: 60px auto 45px;
+    margin: 60px auto 30px;
     transform: scaleX(0.8);
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -302,6 +302,27 @@ header {
     left: 0;
     right: 0;
     bottom: 0;
+}
+
+.contact-info {
+    text-align: left;
+}
+
+.contact-link {
+    padding: 4px;
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.contact-icon {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+}
+
+.no-left {
+    margin-left: 0;
 }
 
 .slalom {
@@ -333,6 +354,13 @@ header {
     }
     75%,100% {
         stroke-dashoffset: 0;
+    }
+}
+
+@media (min-width: 1200px){
+    main {
+        padding-right: 120px;
+        padding-left: 120px;
     }
 }
 
