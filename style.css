@@ -42,7 +42,7 @@ header {
     position: absolute;
     top: 13vh;
     text-align: center;
-    font-family: "EB Garamond",serif;
+    font-family: "Droid Serif",serif;
     overflow: hidden;
     transform: skewX(-135deg);
 }
@@ -56,6 +56,7 @@ header {
 .header-title {
     font-size: 2.5em;
     font-weight: 300;
+    transform: translateY(3.5em);
 }
 .title-black {
     color: var(--theme-dark-text);
@@ -88,6 +89,7 @@ header {
     border-radius: 290486px;
     font-size: 1.5em;
     font-weight: 300;
+    font-family: "Droid Serif",serif;
     letter-spacing: 0.2em;
     padding: 1em 2em;
     text-transform: uppercase;
@@ -260,7 +262,7 @@ header {
 .grid-item-header {
     font-size: 48px;
     line-height: 1.3em;
-    font-family: "EB Garamond",serif;
+    font-family: "Droid Serif",serif;
     margin: 60px auto 0.65em;
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     transform: translateZ(0);
