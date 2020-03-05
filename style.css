@@ -112,6 +112,7 @@ header {
 .header-section {
     height: 60vh;
     position: relative;
+    overflow-x: hidden;
 }
 
 .white-strip {
