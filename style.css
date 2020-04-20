@@ -69,7 +69,6 @@ header {
     overflow: hidden;
     padding: 1px;
     position: absolute;
-    right: 8vw;
     top: 25vh;
     z-index: 10;
     transform: skewX(-135deg);
@@ -112,6 +111,7 @@ header {
 .header-section {
     height: 60vh;
     position: relative;
+    overflow-x: hidden;
 }
 
 .white-strip {
@@ -372,9 +372,77 @@ header {
     }
 }
 
+@media (max-width: 700px){
+    .header-title {
+        font-size: 2em;
+    }
+
+    .button-container-black {
+        right: -45vw;
+    }
+
+    .button-container-white {
+        right: 5vw;
+    }
+}
+
 @media (max-width: 600px){
     .grid-item-header {
         font-size: 36px;
+    }
+}
+
+@media (max-width: 500px){
+    main {
+        padding: 4em 20px;
+    }
+
+    .email-header {
+        font-size: 25px;
+    }
+
+    .header-title {
+        font-size: 1.5em;
+    }
+
+    .header-black {
+        right: -20vw;
+    }
+
+    .header-white {
+        right: 30vw;
+    }
+
+    .header-button {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 400px){
+    .header-title {
+        font-size: 1.3em;
+    }
+
+    .header-black {
+        right: -15vw;
+    }
+
+    .header-white {
+        right: 35vw;
+    }
+}
+
+@media (max-width: 350px){
+    .header-title {
+        font-size: 1.2em;
+    }
+
+    .button-container-black {
+        right: -46vw;
+    }
+
+    .button-container-white {
+        right: 4vw;
     }
 }
 
