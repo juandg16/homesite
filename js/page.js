@@ -15,6 +15,7 @@ var sbisdPaths = [
 app.ready(function(event) {
     header.init();
     animatePath('.icon-sbisd', '200');
+    addListeners();
 });
 
 header.init = function(){
@@ -72,6 +73,19 @@ header.init = function(){
         delay: 1500,
         duration: 5000
     });
+}
+
+addListeners = function(){
+    let element = document.getElementById("bio");
+    document.getElementById('header-button-white').onclick = function() {
+        console.log("button clicked white");
+        element.scrollIntoView({behavior: 'smooth'});
+    }
+
+    document.getElementById('header-button-black').onclick = function() {
+        console.log("button clicked black");
+        element.scrollIntoView({behavior: 'smooth'});
+    }
 }
 
 animatePath = function(iconName, number){
