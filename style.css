@@ -40,11 +40,10 @@ a {
 header {
     line-height: 1.2;
     position: absolute;
-    top: 13vh;
+    top: 40%;
     text-align: center;
     font-family: "Droid Serif",serif;
     overflow: hidden;
-    transform: skewX(-135deg);
 }
 .header-title {
     font-size: 3.5em;
@@ -52,10 +51,12 @@ header {
     transform: translateY(3.5em);
 }
 .header-black {
-    right: -32%;
+    right: 6vh;
+    transform: translate(50%, -50%) skewX(-135deg);
 }
 .header-white {
-    right: 68%;
+    left: -6vh;
+    transform: translate(-50%, -50%) skewX(-135deg);
 }
 .title-black {
     color: var(--theme-dark-text);
@@ -68,16 +69,17 @@ header {
     overflow: hidden;
     padding: 1px;
     position: absolute;
-    top: 25vh;
+    top: 60%;
     z-index: 10;
-    transform: skewX(-135deg);
     pointer-events: auto;
 }
 .button-container-black {
-    right: calc(-40% + 100px);
+    right: -8.2vh;
+    transform: translate(50%, -50%) skewX(-135deg);
 }
 .button-container-white {
-    right: calc(60% + 100px);
+    left: 8.2vh;
+    transform: translate(-50%, -50%) skewX(-135deg);
 }  
 .header-button {
     transform: translateY(3.5em); 
@@ -385,12 +387,6 @@ header {
     .header-title {
         font-size: 2.5em;
     }
-    .header-black {
-        right: calc(-30% + 100px);
-    }
-    .header-white {
-        right: calc(70% + 100px);
-    }
 }
 
 @media (max-width: 800px){
@@ -403,19 +399,9 @@ header {
     .header-title {
         font-size: 2em;
     }
-    .header-black {
-        right: -10%;
-    }
-    .header-white {
-        right: 90%;
-    }
-
-    .button-container-black {
-        right: -183.75px;
-    }
-    .button-container-white {
-        left: -183.75px;
-        right: unset;
+    
+    .header-button {
+        font-size: 1.2em;
     }
 }
 
@@ -437,21 +423,15 @@ header {
     .header-title {
         font-size: 1.5em;
     }
-    .header-black {
-        right: 5%;
-    }
-    .header-white {
-        right: 105%;
-    }
 
     .header-button {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 374px){
+    .header-title {
         font-size: 1.2em;
-    }
-    .button-container-black {
-        right: -147.36px;
-    }
-    .button-container-white {
-        left: -147.36px;
     }
 }
 
