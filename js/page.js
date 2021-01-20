@@ -8,13 +8,9 @@ var app = {
 
 var header = {};
 
-var sbisdPaths = [
-    {id:"#sbisd-path-1", d:""}
-]
-
 app.ready(function(event) {
     header.init();
-    animatePath('.icon-sbisd', '200');
+    animatePath(".icon-sbisd", "200");
     addListeners();
 });
 
@@ -73,6 +69,8 @@ header.init = function(){
         delay: 1500,
         duration: 5000
     });
+
+    loadSBISDPaths();
 }
 
 addListeners = function(){
@@ -84,6 +82,15 @@ addListeners = function(){
     document.getElementById('header-button-black').onclick = function() {
         element.scrollIntoView({behavior: 'smooth'});
     }
+}
+
+loadSBISDPaths = function(){
+    var icon = document.querySelector(".icon-sbisd");
+    var iconPaths = icon.getElementsByTagName('path');
+    iconPaths[0].setAttribute("d", sbisdD1);
+    iconPaths[1].setAttribute("d", sbisdD2);
+    iconPaths[2].setAttribute("d", sbisdD3);    
+    iconPaths[3].setAttribute("d", sbisdD4);
 }
 
 animatePath = function(iconName, number){

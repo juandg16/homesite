@@ -46,17 +46,16 @@ header {
     overflow: hidden;
     transform: skewX(-135deg);
 }
-.header-black {
-    right: -30vw;
-}
-.header-white {
-    right: 20vw;
-}
-
 .header-title {
-    font-size: 2.5em;
+    font-size: 3.5em;
     font-weight: 300;
     transform: translateY(3.5em);
+}
+.header-black {
+    right: -32%;
+}
+.header-white {
+    right: 68%;
 }
 .title-black {
     color: var(--theme-dark-text);
@@ -75,12 +74,11 @@ header {
     pointer-events: auto;
 }
 .button-container-black {
-    right: -40vw;
+    right: calc(-40% + 100px);
 }
 .button-container-white {
-    right: 10vw;
-}
-  
+    right: calc(60% + 100px);
+}  
 .header-button {
     transform: translateY(3.5em); 
     display: inline-block;
@@ -162,6 +160,7 @@ header {
     transform: skewX(135deg);
     z-index: 10;
 }
+/* noclip is used so hover on button shows the full button instead of just the clipped side*/
 .noclip {
     pointer-events: none;
 }
@@ -174,7 +173,7 @@ header {
     right: 50%;
 }
 .clip-white {
-    width: 50%;
+    width: 100%;
     left: 50%;
 }
 
@@ -201,6 +200,14 @@ header {
 .icon-sbisd {
     width: 80px;
     height: 80px;
+}
+.icon-github {
+    width: 62px;
+    height: 60px;
+}
+.icon-linkedin {
+    width: 50px;
+    height: 50px;
 }
 
 .grid-items {
@@ -331,10 +338,18 @@ header {
     background-color: var(--theme-slalom);
 }
 
-
 .sbisd {
     background-color: var(--theme-light);
     color: var(--theme-dark-text);
+}
+
+.ti {
+    background-color: var(--theme-contrast);
+    color: var(--theme-dark-text);
+}
+
+.profile-pic {
+    background-image: url("images/profile.jpg");
 }
 
 #slalom-path-1 {
@@ -366,6 +381,18 @@ header {
     }
 }
 
+@media (max-width: 1200px){    
+    .header-title {
+        font-size: 2.5em;
+    }
+    .header-black {
+        right: calc(-30% + 100px);
+    }
+    .header-white {
+        right: calc(70% + 100px);
+    }
+}
+
 @media (max-width: 800px){
     .grid-item {
         flex: 1 100%;
@@ -376,13 +403,19 @@ header {
     .header-title {
         font-size: 2em;
     }
-
-    .button-container-black {
-        right: -45vw;
+    .header-black {
+        right: -10%;
+    }
+    .header-white {
+        right: 90%;
     }
 
+    .button-container-black {
+        right: -183.75px;
+    }
     .button-container-white {
-        right: 5vw;
+        left: -183.75px;
+        right: unset;
     }
 }
 
@@ -404,45 +437,21 @@ header {
     .header-title {
         font-size: 1.5em;
     }
-
     .header-black {
-        right: -20vw;
+        right: 5%;
     }
-
     .header-white {
-        right: 30vw;
+        right: 105%;
     }
 
     .header-button {
         font-size: 1.2em;
     }
-}
-
-@media (max-width: 400px){
-    .header-title {
-        font-size: 1.3em;
-    }
-
-    .header-black {
-        right: -15vw;
-    }
-
-    .header-white {
-        right: 35vw;
-    }
-}
-
-@media (max-width: 350px){
-    .header-title {
-        font-size: 1.2em;
-    }
-
     .button-container-black {
-        right: -46vw;
+        right: -147.36px;
     }
-
     .button-container-white {
-        right: 4vw;
+        left: -147.36px;
     }
 }
 
