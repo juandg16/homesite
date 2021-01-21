@@ -221,6 +221,7 @@ header {
     flex: 1 100%;
     font-size: 5em;
     line-height: .75em;
+    z-index: 1;
 }
 
 .grid-item {
