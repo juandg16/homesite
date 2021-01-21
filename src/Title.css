@@ -1,0 +1,177 @@
+a {
+  color: var(--theme-contrast);
+}
+
+header {
+  line-height: 1.2;
+  position: absolute;
+  top: 40%;
+  text-align: center;
+  font-family: "Droid Serif",serif;
+  overflow: hidden;
+}
+.header-title {
+  font-size: 3.5em;
+  font-weight: 300;
+  transform: translateY(3.5em);
+}
+.header-black {
+  right: 6vh;
+  transform: translate(50%, -50%) skewX(-135deg);
+}
+.header-white {
+  left: -6vh;
+  transform: translate(-50%, -50%) skewX(-135deg);
+}
+.title-black {
+  color: var(--theme-dark-text);
+}
+.title-white {
+  color: #fff;
+}
+
+.header-button-container {
+  overflow: hidden;
+  padding: 1px;
+  position: absolute;
+  top: 60%;
+  z-index: 10;
+  pointer-events: auto;
+}
+.button-container-black {
+  right: -8.2vh;
+  transform: translate(50%, -50%) skewX(-135deg);
+}
+.button-container-white {
+  left: 8.2vh;
+  transform: translate(-50%, -50%) skewX(-135deg);
+}  
+.header-button {
+  transform: translateY(3.5em); 
+  display: inline-block;
+  border: 1px solid var(--theme-contrast);
+  border-radius: 290486px;
+  font-size: 1.5em;
+  font-weight: 300;
+  font-family: "Droid Serif",serif;
+  letter-spacing: 0.2em;
+  padding: 1em 2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: none 200ms ease-out;
+  transition-property: color, background;
+  pointer-events: auto;
+}
+.button-black {
+  color: var(--theme-dark-text);
+}
+.button-white {
+  color: #fff;
+}
+.header-button:hover{
+  background:  var(--theme-contrast);
+  color: var(--theme-dark-text);
+}
+
+.header-section {
+  height: 60vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.white-strip {
+  position: absolute;
+  background: #fff;
+  height: 100%;
+  width: 100%;
+}
+.strip {
+  position: absolute;
+  height: 100%;
+  width: 100%
+}
+.strip-neutral {
+  background: linear-gradient(135deg,
+  var(--theme-neutral) 16.66%, rgb(0,0,0,0%) 0);
+  z-index: 5;
+}
+.strip-contrast {
+  background: linear-gradient(135deg,
+  rgb(0,0,0,0%) 16.66%, var(--theme-contrast) 0,
+  var(--theme-contrast) 33.33%, rgb(0,0,0,0%) 0);
+  z-index: 4;
+}
+.strip-light {
+  background: linear-gradient(135deg,
+  rgb(0,0,0,0%) 33.33%, var(--theme-light) 0,
+  var(--theme-light) 50%, rgb(0,0,0,0%)  0);
+  z-index: 3;
+}
+.strip-primary {
+  background: linear-gradient(135deg,
+  rgb(0,0,0,0%) 50%, var(--theme-primary) 0,
+  var(--theme-primary) 83.33%, rgb(0,0,0,0%) 0);
+  z-index: 2;
+}
+.strip-dark {
+  background: linear-gradient(135deg,
+  rgb(0,0,0,0%) 83.33%, var(--theme-dark) 0);
+  z-index: 1;
+}
+
+.skew-clip {
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  white-space: nowrap;
+  transform: skewX(135deg);
+  z-index: 10;
+}
+/* noclip is used so hover on button shows the full button instead of just the clipped side*/
+.noclip {
+  pointer-events: none;
+}
+.noclip:hover {
+  overflow: unset;
+  z-index: 11;
+}
+.clip-black {
+  width: 100%;
+  right: 50%;
+}
+.clip-white {
+  width: 100%;
+  left: 50%;
+}
+
+@media (max-width: 1200px){    
+  .header-title {
+      font-size: 2.5em;
+  }
+}
+
+@media (max-width: 700px){
+  .header-title {
+      font-size: 2em;
+  }
+  
+  .header-button {
+      font-size: 1.2em;
+  }
+}
+
+@media (max-width: 500px){
+  .header-title {
+      font-size: 1.5em;
+  }
+
+  .header-button {
+      font-size: 1em;
+  }
+}
+
+@media (max-width: 374px){
+  .header-title {
+      font-size: 1.2em;
+  }
+}
