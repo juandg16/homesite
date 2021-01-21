@@ -1,0 +1,24 @@
+:root {
+  --theme-light: #CBE6EA;
+  --theme-neutral: #6E6E71;
+  --theme-primary: #30688B;
+  --theme-dark: #0D2238;
+  --theme-contrast: #FFC296;
+  --theme-dark-text: #333;
+  --theme-main-text: #555;
+  --theme-slalom: #08091D;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Droid Serif', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
