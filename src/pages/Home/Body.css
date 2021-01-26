@@ -16,10 +16,6 @@ strong {
 color: var(--theme-dark-text);
 }
 
-a {
-  color: var(--theme-contrast);
-}
-
 .section {
   margin: 200px auto 0;
   max-width: 100%;
@@ -157,6 +153,12 @@ a {
   bottom: 0;
 }
 
+.link-item {
+  width: 100%;
+  color: unset;
+  text-decoration: unset;
+}
+
 .contact-info {
   text-align: left;
 }
@@ -211,6 +213,13 @@ a {
   }
   75%,100% {
       stroke-dashoffset: 0;
+  }
+}
+
+
+@media (max-width: 1300px){
+  .email-header {
+    font-size: 33px;
   }
 }
 

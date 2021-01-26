@@ -22,9 +22,9 @@ function Title() {
         </div>
         <div class="skew-clip noclip clip-black">
             <p class="header-button-container button-container-black">
-                <a class="header-button button-black" id="header-button-black">
+                <button class="header-button button-black" id="header-button-black">
                     Juan Gutierrez
-                </a>
+                </button>
             </p>
         </div>
         <div class="skew-clip clip-white">
@@ -36,9 +36,9 @@ function Title() {
         </div>
         <div class="skew-clip noclip clip-white">
             <p class="header-button-container button-container-white">
-                <a class="header-button button-white" id="header-button-white">
+                <button class="header-button button-white" id="header-button-white">
                     Juan Gutierrez
-                </a>
+                </button>
             </p>
         </div>
     </div>
