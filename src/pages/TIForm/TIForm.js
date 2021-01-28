@@ -88,47 +88,55 @@ function TIForm() {
         }
         <form onSubmit={handleSubmit}>
           <fieldset disabled={submitting}>
-            <label>
-              <p>Type</p>
-              <select name="type" onChange={handleChange} value={formData.type || ''}>
-                  <option value="">--Please choose an option--</option>
-                  <option value="score">Score a point</option>
-                  <option value="trade">Finalize a trade</option>
-                  <option value="tactical">Tactical action</option>
-                  <option value="strategic">Strategic action</option>
-                  <option value="component">Component action</option>
+            <div className="input-box">
+              <select name="type" onChange={handleChange} value={formData.type || ''} required>
+                <option value=""></option>
+                <option value="score">Score a point</option>
+                <option value="trade">Finalize a trade</option>
+                <option value="tactical">Tactical action</option>
+                <option value="strategic">Strategic action</option>
+                <option value="component">Component action</option>
               </select>
-            </label>
-            <label>
-              <p>Phase</p>
-              <select name="phase" onChange={handleChange} value={formData.phase || ''}>
-                  <option value="">--Please choose an option--</option>
-                  <option value="strategy">Strategy</option>
-                  <option value="action">Action</option>
-                  <option value="status">Status</option>
-                  <option value="agenda">Agenda</option>
+              <label>Type</label>
+            </div>    
+            <div className="input-box">
+              <select name="phase" onChange={handleChange} value={formData.phase || ''} required>
+                <option value=""></option>
+                <option value="strategy">Strategy</option>
+                <option value="action">Action</option>
+                <option value="status">Status</option>
+                <option value="agenda">Agenda</option>
               </select>
-            </label>
+              <label>Phase</label>
+            </div>
           </fieldset>
           { formData.type === 'score' && <fieldset  disabled={submitting}>
-            <label>
-              <p>Point Type</p>
-              <select name="point-type" onChange={handleMapChange} value={formData.data['point-type'] || ''}>
-                  <option value="">--Please choose an option--</option>
-                  <option value="public">Public</option>
-                  <option value="secret">Secret</option>
-                  <option value="agenda">Agenda</option>
-                  <option value="support">Support for the Throne</option>
-                  <option value="other">Other</option>
+            <div className="input-box">
+              <select name="point-type" onChange={handleMapChange} value={formData.data['point-type'] || ''} required>
+                <option value=""></option>
+                <option value="public">Public</option>
+                <option value="secret">Secret</option>
+                <option value="agenda">Agenda</option>
+                <option value="support">Support for the Throne</option>
+                <option value="other">Other</option>
               </select>
-            </label>
-            <p>Point Value</p>
-            <input type="number" name="point-value" onChange={handleMapChange} step="1" value={formData.data['point-value'] || ''}/>
+              <label>Point Type</label>
+            </div>
+            <div className="input-box">
+              <input type="number" name="point-value" onChange={handleMapChange} step="1" value={formData.data['point-value'] || ''} required/>
+              <label>Point Value</label>
+            </div>
           </fieldset>}
           {/* <fieldset>
             <TradeForm handleChange={this.handleChange.bind(this)} />
           </fieldset> */}
-          <button type="submit" disabled={submitting}>Submit</button>
+          <button type="submit" disabled={submitting}>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Submit
+          </button>
         </form>
     </div>
   );
