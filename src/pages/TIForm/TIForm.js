@@ -1,6 +1,7 @@
 import React, { useReducer, useState } from 'react';
 import uuid from 'react-uuid';
 import './TIForm.css';
+import TradeForm from './TradeForm';
 
 const formReducer = (state, event) => {
   if(event.reset) {
@@ -9,6 +10,7 @@ const formReducer = (state, event) => {
       type: '',
       phase: '',
       id: uuid(),
+      data: {},
     }
   }
   return {
@@ -21,7 +23,7 @@ function TIForm() {
   const [formData, setFormData] = useReducer(formReducer, {
     gameId: uuid(),    
     id: uuid(),
-    data: 'filler',
+    data: {},
   });
   const [submitting, setSubmitting] = useState(false);
 
@@ -62,9 +64,17 @@ function TIForm() {
    })
   }
 
+  const handleMapChange = event => {
+    let newDataValue = {...formData.data, [event.target.name]: event.target.value}
+    setFormData({
+      name: 'data',
+      value: newDataValue
+    })
+  }
+
   return (    
     <div className="ti-form">
-        <h1>Form starts here</h1>
+        <h1>TI Data Tracker</h1>
         {submitting && 
         <div>
           You are submitting the following: 
@@ -89,8 +99,6 @@ function TIForm() {
                   <option value="component">Component action</option>
               </select>
             </label>
-          </fieldset>
-          <fieldset disabled={submitting}>
             <label>
               <p>Phase</p>
               <select name="phase" onChange={handleChange} value={formData.phase || ''}>
@@ -102,6 +110,24 @@ function TIForm() {
               </select>
             </label>
           </fieldset>
+          { formData.type === 'score' && <fieldset  disabled={submitting}>
+            <label>
+              <p>Point Type</p>
+              <select name="point-type" onChange={handleMapChange} value={formData.data['point-type'] || ''}>
+                  <option value="">--Please choose an option--</option>
+                  <option value="public">Public</option>
+                  <option value="secret">Secret</option>
+                  <option value="agenda">Agenda</option>
+                  <option value="support">Support for the Throne</option>
+                  <option value="other">Other</option>
+              </select>
+            </label>
+            <p>Point Value</p>
+            <input type="number" name="point-value" onChange={handleMapChange} step="1" value={formData.data['point-value'] || ''}/>
+          </fieldset>}
+          {/* <fieldset>
+            <TradeForm handleChange={this.handleChange.bind(this)} />
+          </fieldset> */}
           <button type="submit" disabled={submitting}>Submit</button>
         </form>
     </div>
