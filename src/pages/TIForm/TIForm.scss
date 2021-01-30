@@ -8,7 +8,6 @@
     background: rgba(0,0,0,.5);
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0,0,0,.6);
-    border-radius: 10px;
 }
 
 .ti-form h1 {
@@ -22,12 +21,60 @@
     position: relative;
 }
 
-.input-box select, input {
+.react-dropdown-select {
     width: 100%;
     padding: 10px 0;
     font-size: 16px;
     color: #fff;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
+    border: none !important;
+    border-bottom: 1px solid #fff !important;
+    padding-left: 0 !important;
+    outline: none;
+    cursor: pointer;
+    &:hover,
+    &:focus,
+    &:active:focus{
+        color:#03e9f4;
+        outline:none;
+        border-bottom:1px solid #03e9f4 !important;
+    }
+}
+
+.react-dropdown-select:focus-within {
+    box-shadow: 0 0 0 1px rgba(0,0,0,.2) !important;
+}
+
+.react-dropdown-select-option {
+    border: 1px solid #fff;
+}
+
+.react-dropdown-select-input {
+    color: #fff;
+    text-transform:uppercase;
+    &::placeholder{        
+        color: #fff;      
+    }
+}
+.react-dropdown-select-item {
+    color: #fff;
+    background-color: rgba(0,0,0,.5);
+    border-bottom: 1px solid rgba(0,0,0,.5);
+}
+
+.react-dropdown-select-item-selected {
+    background-color: #333 !important;
+}
+
+.react-dropdown-select-item:hover {
+       color: #333;    
+}
+
+input {
+    width: 100%;
+    padding: 15px 0 10px 0;
+    font-size: 16px;
+    color: #fff;
     border: none;
     border-bottom: 1px solid #fff;
     outline: none;
@@ -35,22 +82,19 @@
     cursor: pointer;
 }
 
+label {
+    display: block;
+    color: #fff;
+    padding: 10px 0 5px 0;
+}
+
 .input-box label {
     position: absolute;
-    top:0;
+    top: 0;
     left: 0;
     padding: 10px 0;
     font-size: 16px;
-    color: #fff;
     transition: .5s;
-}
-
-.input-box select:focus ~ label,
-.input-box select:valid ~ label {
-    top: -20px;
-    left: 0;
-    color: #03e9f4;
-    font-size: 12px;
 }
 
 .input-box input:focus ~ label,
@@ -58,11 +102,12 @@
     top: -20px;
     left: 0;
     color: #03e9f4;
-    font-size: 12px;
+    font-size: 16px;
 }
 
 .ti-form form fieldset {
     padding-top: 15px;
+    margin-bottom: 5px;
 }
 
 
@@ -77,13 +122,15 @@
     overflow: hidden;
     transition: .5s;
     margin-top: 40px;
-    letter-spacing: 4px
-  }
+    letter-spacing: 4px;
+    border: none;
+    background: transparent;
+}
   
 .ti-form form button:hover {
     background: #03e9f4;
     color: #fff;
-    border-radius: 5px;
+    border: none;
     box-shadow: 0 0 5px #03e9f4,
                 0 0 25px #03e9f4,
                 0 0 50px #03e9f4,

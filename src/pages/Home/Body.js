@@ -1,7 +1,7 @@
 import banking from '../../images/banking.jpg';
 import profile from '../../images/profile.jpg';
 import { Link } from "react-router-dom";
-import './Body.css';
+import './Body.scss';
 
 function Body() {
   return (    

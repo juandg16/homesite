@@ -89,30 +89,30 @@ header {
 }
 .strip-neutral {
   background: linear-gradient(135deg,
-  var(--theme-neutral) 16.66%, rgb(0,0,0,0%) 0);
+  var(--theme-neutral) 16.66%, rgba(0,0,0,0%) 0);
   z-index: 5;
 }
 .strip-contrast {
   background: linear-gradient(135deg,
-  rgb(0,0,0,0%) 16.66%, var(--theme-contrast) 0,
-  var(--theme-contrast) 33.33%, rgb(0,0,0,0%) 0);
+  rgba(0,0,0,0%) 16.66%, var(--theme-contrast) 0,
+  var(--theme-contrast) 33.33%, rgba(0,0,0,0%) 0);
   z-index: 4;
 }
 .strip-light {
   background: linear-gradient(135deg,
-  rgb(0,0,0,0%) 33.33%, var(--theme-light) 0,
-  var(--theme-light) 50%, rgb(0,0,0,0%)  0);
+  rgba(0,0,0,0%) 33.33%, var(--theme-light) 0,
+  var(--theme-light) 50%, rgba(0,0,0,0%)  0);
   z-index: 3;
 }
 .strip-primary {
   background: linear-gradient(135deg,
-  rgb(0,0,0,0%) 50%, var(--theme-primary) 0,
-  var(--theme-primary) 83.33%, rgb(0,0,0,0%) 0);
+  rgba(0,0,0,0%) 50%, var(--theme-primary) 0,
+  var(--theme-primary) 83.33%, rgba(0,0,0,0%) 0);
   z-index: 2;
 }
 .strip-dark {
   background: linear-gradient(135deg,
-  rgb(0,0,0,0%) 83.33%, var(--theme-dark) 0);
+  rgba(0,0,0,0%) 83.33%, var(--theme-dark) 0);
   z-index: 1;
 }
 
