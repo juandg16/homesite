@@ -1,48 +1,55 @@
-// function TradeForm(props){
-//     return (    
-//         <div className="trade-form">
-//             <h1>Form starts here</h1>
-//             {submitting && 
-//             <div>
-//             You are submitting the following: 
-//             <ul>
-//             {Object.entries(formData).map(([name, value]) => (
-//                 <li key={name}><strong>{name}</strong>:{value.toString()}</li>
-//             ))}
-//             <li>{process.env.REACT_APP_WRITE_API_URL}</li>
-//             </ul>
-//             </div>
-//             }
-//             <form onSubmit={handleSubmit}>
-//             <fieldset disabled={submitting}>
-//                 <label>
-//                 <p>Type</p>
-//                 <select name="type" onChange={handleChange} value={formData.type || ''}>
-//                     <option value="">--Please choose an option--</option>
-//                     <option value="score">Score a point</option>
-//                     <option value="trade">Finalize a trade</option>
-//                     <option value="tactical">Tactical action</option>
-//                     <option value="strategic">Strategic action</option>
-//                     <option value="component">Component action</option>
-//                 </select>
-//                 </label>
-//             </fieldset>
-//             <fieldset disabled={submitting}>
-//                 <label>
-//                 <p>Phase</p>
-//                 <select name="phase" onChange={handleChange} value={formData.phase || ''}>
-//                     <option value="">--Please choose an option--</option>
-//                     <option value="strategy">Strategy</option>
-//                     <option value="action">Action</option>
-//                     <option value="status">Status</option>
-//                     <option value="agenda">Agenda</option>
-//                 </select>
-//                 </label>
-//             </fieldset>
-//             <button type="submit" disabled={submitting}>Submit</button>
-//             </form>
-//         </div>
-//     );
-// }
+import { makeStyles } from '@material-ui/core/styles';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
 
-// export default TradeForm;
+const useStyles = makeStyles((theme) => ({
+    formControl: {
+      display: "flex",
+      margin: theme.spacing(1),
+      marginTop: theme.spacing(2),
+    }
+}));
+    
+
+function TradeForm(props){
+    const classes = useStyles();
+    return (    
+        <div className="trade-form">
+            <FormControl variant="filled" disabled={props.submitting} className={classes.formControl} required>
+                <InputLabel id="type-select-label">Type</InputLabel>
+                <Select
+                  labelId="" 
+                  id="type-select"
+                  name="type"
+                  onChange={props.handleChange} 
+                  value={props.formData.type || ''}                   
+                >
+                    <MenuItem value={"score"}>Score a point</MenuItem>
+                    <MenuItem value={"trade"}>Finalize a trade</MenuItem>
+                    <MenuItem value={"tactical"}>Tactical action</MenuItem>
+                    <MenuItem value={"strategic"}>Strategic action</MenuItem>
+                    <MenuItem value={"component"}>Component action</MenuItem>
+                </Select>
+            </FormControl>  
+            <FormControl variant="filled" disabled={props.submitting} className={classes.formControl} required>        
+                <InputLabel id="phase-select-label">Phase</InputLabel>
+                <Select 
+                  labelId="phase-select-label"
+                  id="phase-select"
+                  name="phase"
+                  onChange={props.handleChange} 
+                  value={props.formData.phase || ''}                  
+                >
+                    <MenuItem value={"strategy"}>Strategy</MenuItem>
+                    <MenuItem value={"action"}>Action</MenuItem>
+                    <MenuItem value={"status"}>Status</MenuItem>
+                    <MenuItem value={"agenda"}>Agenda</MenuItem>
+                </Select>
+            </FormControl>
+        </div>
+    );
+}
+
+export default TradeForm;

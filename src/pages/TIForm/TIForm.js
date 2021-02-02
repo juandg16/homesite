@@ -1,8 +1,31 @@
 import React, { useReducer, useState } from 'react';
 import uuid from 'react-uuid';
+import { 
+  Tab, 
+  Tabs, 
+  Card, 
+  CardContent, 
+  CardActions } from '@material-ui/core'
+import { createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
 import './TIForm.scss';
-import Select from 'react-dropdown-select';
 import TradeForm from './TradeForm';
+import MainForm from './MainForm';
+import { orange } from '@material-ui/core/colors';
+
+
+const darkTheme = createMuiTheme({
+  palette: {
+    type: 'dark',
+    primary: {
+      main: '#03e9f4',
+    },
+    secondary: orange,
+    action: {
+      hover: '#03e9f4',
+    }
+  },
+});
 
 const formReducer = (state, event) => {
   if(event.reset) {
@@ -18,28 +41,7 @@ const formReducer = (state, event) => {
     ...state,
     [event.name]: event.value
   }
- }
-
-const typeOptions = [
-  {value: "score", label: "Score a point"},
-  {value: "trade", label: "Finalize a trade"},
-  {value: "tactical", label: "Tactical action"},
-  {value: "strategic", label: "Strategic action"},
-  {value: "component", label: "Component action"}
- ]
-const phaseOptions = [
-  {value: "strategy", label: "Strategy"},
-  {value: "action", label: "Action"},
-  {value: "status", label: "Status"},
-  {value: "agenda", label: "Agenda"}
-]
-const pointTypeOptions = [
-  {value: "public", label: "Public"},
-  {value: "secret", label: "Secret"},
-  {value: "support", label: "Support for the Throne"},
-  {value: "agenda", label: "Agenda"},
-  {value: "other", label: "Other"}
-]
+}
 
 function TIForm() {
   const [formData, setFormData] = useReducer(formReducer, {
@@ -48,6 +50,7 @@ function TIForm() {
     data: {},
   });
   const [submitting, setSubmitting] = useState(false);
+  const [key, setKey] = useState(0);
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -78,15 +81,19 @@ function TIForm() {
     })
   }
 
-  const handleChange = (name, value) => {
-   setFormData({
-     name: name,
-     value: value,
-   })
+  const handleTabChange = (event, newValue) => {
+    setKey(newValue);
+  };
+
+  const handleChange = (event) => {
+    setFormData({
+      name: event.target.name,
+      value: event.target.value,
+    })
   }
 
-  const handleMapChange = (name, value) => {
-    let newDataValue = {...formData.data, [name]: value}
+  const handleMapChange = (event) => {
+    let newDataValue = {...formData.data, [event.target.name]: event.target.value}
     setFormData({
       name: 'data',
       value: newDataValue
@@ -94,83 +101,66 @@ function TIForm() {
   }
 
   return (    
-    <div className="ti-form">
+    <ThemeProvider theme={darkTheme}>
+      <div className="ti-form">
         <h1>TI Data Tracker</h1>
         {submitting && 
-        <div>
-          You are submitting the following: 
-          <ul>
-           {Object.entries(formData).map(([name, value]) => (
-             <li key={name}><strong>{name}</strong>:{value.toString()}</li>
-           ))}
-           <li>{process.env.REACT_APP_WRITE_API_URL}</li>
-         </ul>
-        </div>
-        }
-        <form onSubmit={handleSubmit}>
-          <fieldset disabled={submitting}>
-            <div>              
-              <label>Type</label>
-              <Select 
-                name="type" 
-                dropdownGap={0}
-                placeholder=""
-                options={typeOptions} 
-                onChange={(values) => handleChange("type",values[0].value)} 
-                value={formData.type || ''} 
-                required 
-              />
-            </div>    
-            <div>              
-              <label>Phase</label>
-              <Select 
-                name="phase" 
-                dropdownGap={0}
-                placeholder=""
-                options={phaseOptions} 
-                onChange={(values) => handleChange("phase",values[0].value)} 
-                value={formData.phase || ''} 
-                required
-              />
-            </div>
-          </fieldset>
-          { formData.type === 'score' && <fieldset  disabled={submitting}>
-            <div>              
-              <label>Point Type</label>
-              <Select 
-                name="point-type" 
-                dropdownGap={0}
-                placeholder=""
-                options={pointTypeOptions} 
-                onChange={(values) => handleMapChange("point-type",values[0].value)} 
-                value={formData.data['point-type'] || ''} 
-                required
-              />
-            </div>
-            <div className="input-box">
-              <input 
-                type="number" 
-                name="point-value" 
-                onChange={(event) => handleMapChange("point-value", event.target.value)} 
-                step="1" 
-                value={formData.data['point-value'] || ''} 
-                required
-              />
-              <label>Point Value</label>
-            </div>
-          </fieldset>}
-          {/* <fieldset>
-            <TradeForm handleChange={this.handleChange.bind(this)} />
-          </fieldset> */}
-          <button type="submit" disabled={submitting}>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            Submit
-          </button>
+          <div>
+            You are submitting the following:
+            <ul>
+              {Object.entries(formData).map(([name, value]) => (
+                <li key={name}><strong>{name}</strong>:{value.toString()}</li>
+              ))}
+              <li>{process.env.REACT_APP_WRITE_API_URL}</li>
+            </ul>
+          </div>
+        }         
+        <form onSubmit={handleSubmit}>  
+          <Card>
+            <Tabs 
+              value={key}
+              onChange={handleTabChange}
+              variant="fullWidth"
+            >
+              <Tab label="Main" />
+              <Tab label="Trade" />
+              <Tab label="Uhh" />
+            </Tabs>  
+            <CardContent>
+              { key === 0 &&
+                <fieldset>
+                  <MainForm 
+                    handleChange={handleChange.bind(this)} 
+                    handleMapChange={handleMapChange.bind(this)}
+                    formData={formData}
+                    submitting={submitting}
+                  />
+                </fieldset>
+              }
+              { key === 1 &&
+                <fieldset>
+                  <TradeForm 
+                    handleChange={handleChange.bind(this)} 
+                    handleMapChange={handleMapChange.bind(this)}
+                    formData={formData}
+                    submitting={submitting}
+                  />
+                </fieldset>
+              }
+            </CardContent>
+            <CardActions>
+              <button className="submitButton" type="submit" disabled={submitting}>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Submit
+              </button>
+            </CardActions>
+          </Card>                 
         </form>
-    </div>
+      </div>
+    </ThemeProvider>    
   );
 }
 
