@@ -6,6 +6,14 @@ header {
   font-family: "Droid Serif",serif;
   overflow: hidden;
 }
+
+.header-section {
+  height: 60vh;
+  position: relative;
+  overflow-x: hidden;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 .header-title {
   font-size: 3.5em;
   font-weight: 300;
@@ -68,12 +76,6 @@ header {
 .header-button:hover{
   background:  var(--theme-contrast);
   color: var(--theme-dark-text);
-}
-
-.header-section {
-  height: 60vh;
-  position: relative;
-  overflow-x: hidden;
 }
 
 .white-strip {
