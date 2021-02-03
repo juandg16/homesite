@@ -16,10 +16,6 @@ strong {
 color: var(--theme-dark-text);
 }
 
-a {
-  color: var(--theme-contrast);
-}
-
 .section {
   margin: 200px auto 0;
   max-width: 100%;
@@ -56,6 +52,7 @@ a {
 .grid-items {
   display: flex;
   flex-flow: row wrap;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .grid-section-header {
@@ -157,6 +154,12 @@ a {
   bottom: 0;
 }
 
+.link-item {
+  width: 100%;
+  color: unset;
+  text-decoration: unset;
+}
+
 .contact-info {
   text-align: left;
 }
@@ -211,6 +214,13 @@ a {
   }
   75%,100% {
       stroke-dashoffset: 0;
+  }
+}
+
+
+@media (max-width: 1300px){
+  .email-header {
+    font-size: 33px;
   }
 }
 
