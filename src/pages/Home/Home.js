@@ -24,6 +24,14 @@ let initialize = function(){
     });
 
     anime({
+        targets: ".header-section",
+        boxShadow: '0 5px 15px 0 rgba(0, 0, 0, 0.5)', 
+        easing: "easeOutExpo",
+        delay: 1500,
+        duration: 1200
+    });
+
+    anime({
         targets: "#cover1",
         translateY: ["0", "-61vh"],
         easing: "easeOutExpo",
